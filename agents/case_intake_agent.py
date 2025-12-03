@@ -7,10 +7,10 @@ llm = LLM(
     base_url="https://api.groq.com/openai/v1"
 )
 
-ipc_section_agent = Agent(
-    role="IPC Section Finder",
-    goal="Identify relevant IPC sections for the given legal case.",
-    backstory="You are an expert in Indian Penal Code analysis.",
+case_intake_agent = Agent(
+    role="Case Intake Specialist",
+    goal="Gather important details from the user about the legal case.",
+    backstory="You are responsible for summarizing incoming legal cases and identifying key facts.",
     llm=llm,
     verbose=True
 )
