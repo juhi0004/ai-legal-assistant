@@ -2,7 +2,8 @@
 
 from crewai import Agent, LLM
 
-llm = LLM(model="groq/llama-3.3-70b-versatile", temperature=0.4)
+llm = LLM(model="groq/llama3-70b-8192"
+api_key=os.getenv("GROQ_API_KEY"), temperature=0.4)
 
 legal_drafter_agent = Agent(
     role="Legal Document Drafting Agent",
