@@ -1,30 +1,16 @@
-# case_intake_agent.py
+from crewai import LLM, Agent
 import os
-from crewai import Agent, LLM
 
-
-# agent specific LLM - can also be configured din .env file
 llm = LLM(
-    model="groq/llama3-70b-8192",
+    model="llama3-70b-8192",
     api_key=os.getenv("GROQ_API_KEY"),
-    temperature=0
+    base_url="https://api.groq.com/openai/v1"
 )
 
-case_intake_agent = Agent(
-    role="Case Intake Agent",
-    goal=(
-        "Understand the user's legal issue and classify it into a"
-         " structured format for further legal processing."
-    ),
-    backstory=(
-        "You're a highly skilled legal intake assistant trained to analyze"
-        " plain-English legal concerns. "
-        "You identify the type of legal issue, categorize it under a domain of law,"
-        " and extract relevant context "
-        "to pass along to legal researchers, drafters, or compliance teams."
-    ),
+ipc_section_agent = Agent(
+    role="IPC Section Finder",
+    goal="Identify relevant IPC sections for the given legal case.",
+    backstory="You are an expert in Indian Penal Code analysis.",
     llm=llm,
-    tools=[],
-    verbose=True,
+    verbose=True
 )
-
