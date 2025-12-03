@@ -1,5 +1,5 @@
 # legal_drafter_agent.py
-
+import os
 from crewai import Agent, LLM
 
 llm = LLM(model="groq/llama3-70b-8192"

@@ -1,5 +1,5 @@
 # legal_precedent_agent.py
-
+import os
 from crewai import Agent, LLM
 from tools.legal_precedent_search_tool import search_legal_precedents
 
